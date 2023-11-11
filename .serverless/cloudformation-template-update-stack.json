@@ -74,7 +74,7 @@
     "Function1LogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/serverlesscicd-dev-function1"
+        "LogGroupName": "/aws/lambda/serverlesscicd-preprod-function1"
       }
     },
     "IamRoleLambdaExecution": {
@@ -103,7 +103,7 @@
                 "-",
                 [
                   "serverlesscicd",
-                  "dev",
+                  "preprod",
                   "lambda"
                 ]
               ]
@@ -120,7 +120,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverlesscicd-dev*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverlesscicd-preprod*:*"
                     }
                   ]
                 },
@@ -131,7 +131,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverlesscicd-dev*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/serverlesscicd-preprod*:*:*"
                     }
                   ]
                 }
@@ -145,7 +145,7 @@
             "-",
             [
               "serverlesscicd",
-              "dev",
+              "preprod",
               {
                 "Ref": "AWS::Region"
               },
@@ -162,11 +162,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverlesscicd/dev/1699708155997-2023-11-11T13:09:15.997Z/serverlesscicd.zip"
+          "S3Key": "serverless/serverlesscicd/preprod/1699708383050-2023-11-11T13:13:03.050Z/serverlesscicd.zip"
         },
         "Handler": "index.handler",
         "Runtime": "nodejs18.x",
-        "FunctionName": "serverlesscicd-dev-function1",
+        "FunctionName": "serverlesscicd-preprod-function1",
         "MemorySize": 1024,
         "Timeout": 6,
         "Role": {
@@ -180,14 +180,14 @@
         "Function1LogGroup"
       ]
     },
-    "Function1LambdaVersionSfQXepPsNQOq7aIxE1x32scjYj0Fpuwr93NIMYYI5s0": {
+    "Function1LambdaVersionSa6XqNowcVZ3j0V2iuaga6yNLC6toFjYYqkkE64": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "Function1LambdaFunction"
         },
-        "CodeSha256": "StL1iG9G3cwvKl0xAfZMiDnUhtjapfoVrIbPTmBtrJ0="
+        "CodeSha256": "EFnKOgtaVSnBeM7UeQesRQAL0R+y15fueopuJcCm7Dw="
       }
     }
   },
@@ -197,16 +197,16 @@
         "Ref": "ServerlessDeploymentBucket"
       },
       "Export": {
-        "Name": "sls-serverlesscicd-dev-ServerlessDeploymentBucketName"
+        "Name": "sls-serverlesscicd-preprod-ServerlessDeploymentBucketName"
       }
     },
     "Function1LambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "Function1LambdaVersionSfQXepPsNQOq7aIxE1x32scjYj0Fpuwr93NIMYYI5s0"
+        "Ref": "Function1LambdaVersionSa6XqNowcVZ3j0V2iuaga6yNLC6toFjYYqkkE64"
       },
       "Export": {
-        "Name": "sls-serverlesscicd-dev-Function1LambdaFunctionQualifiedArn"
+        "Name": "sls-serverlesscicd-preprod-Function1LambdaFunctionQualifiedArn"
       }
     }
   }
